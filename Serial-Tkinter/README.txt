@@ -1,0 +1,1 @@
+This program shows the interaction between microcontroller and PC via serial port. I used C to program the micro chip, Serial and Tkinter Module in Python to program a GUI application, on which users can select which LED(s) they want to lighten up.
