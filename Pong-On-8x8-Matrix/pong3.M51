@@ -1,0 +1,339 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/17/2013  09:44:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE pong3.obj TO pong3 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  pong3.obj (PONG3)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  pong3 (PONG3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?PONG3
+            DATA    000EH     0001H     UNIT         ?DT?CLEARSCREEN?PONG3
+            DATA    000FH     0001H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     0057H     UNIT         ?PR?TIMER?PONG3
+            CODE    0857H     0045H     UNIT         ?PR?KEY?PONG3
+            CODE    089CH     0034H     UNIT         ?PR?TESTBOUNDARY?PONG3
+            CODE    08D0H     0030H     UNIT         ?PR?TESTCATCH?PONG3
+            CODE    0900H     0027H     UNIT         ?PR?INIT?PONG3
+            CODE    0927H     001BH     UNIT         ?PR?_D2?PONG3
+            CODE    0942H     0017H     UNIT         ?PR?_D1?PONG3
+            CODE    0959H     0016H     UNIT         ?CO?PONG3
+            CODE    096FH     0013H     UNIT         ?PR?MAIN?PONG3
+            CODE    0982H     000EH     UNIT         ?PR?_DELAY?PONG3
+            CODE    0990H     000EH     UNIT         ?PR?CLEARSCREEN?PONG3
+            CODE    099EH     000CH     UNIT         ?C_C51STARTUP
+            CODE    09AAH     000AH     UNIT         ?PR?BUZZ?PONG3
+
+
+
+OVERLAY MAP OF MODULE:   pong3 (PONG3)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?PR?TIMER?PONG3                -----    -----
+  +--> ?PR?KEY?PONG3
+
+?PR?KEY?PONG3                  -----    -----
+  +--> ?PR?_D1?PONG3
+  +--> ?PR?_D2?PONG3
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/17/2013  09:44:29  PAGE 2
+
+
+
+?PR?_D1?PONG3                  -----    -----
+  +--> ?CO?PONG3
+  +--> ?PR?_DELAY?PONG3
+
+?PR?_D2?PONG3                  -----    -----
+  +--> ?CO?PONG3
+  +--> ?PR?_DELAY?PONG3
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?PONG3
+
+?PR?MAIN?PONG3                 -----    -----
+  +--> ?PR?INIT?PONG3
+  +--> ?PR?TESTCATCH?PONG3
+  +--> ?PR?TESTBOUNDARY?PONG3
+  +--> ?PR?_D1?PONG3
+  +--> ?PR?_D2?PONG3
+
+?PR?INIT?PONG3                 000FH    0001H
+  +--> ?CO?PONG3
+
+
+
+SYMBOL TABLE OF MODULE:  pong3 (PONG3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PONG3
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  C:0967H         PUBLIC        ballXtable
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        offset
+  C:0959H         PUBLIC        P0table
+  C:089CH         PUBLIC        testBoundary
+  C:095FH         PUBLIC        P2table
+  D:00A8H         PUBLIC        IE
+  C:0982H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:00B0H.4       PUBLIC        beep
+  C:0800H         PUBLIC        timer
+  C:096FH         PUBLIC        main
+  C:08D0H         PUBLIC        testCatch
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0900H         PUBLIC        init
+  B:00A8H.1       PUBLIC        ET0
+  C:0857H         PUBLIC        key
+  D:008CH         PUBLIC        TH0
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/17/2013  09:44:29  PAGE 3
+
+
+  C:09AAH         PUBLIC        buzz
+  D:008AH         PUBLIC        TL0
+  D:0009H         PUBLIC        timer1
+  B:0088H.4       PUBLIC        TR0
+  D:00C8H         PUBLIC        T2CON
+  C:0990H         PUBLIC        clearScreen
+  C:0942H         PUBLIC        _D1
+  C:092BH         PUBLIC        _D2
+  D:000AH         PUBLIC        ballX
+  D:000BH         PUBLIC        ballY
+  D:000CH         PUBLIC        DirX
+  D:000DH         PUBLIC        DirY
+  D:00D0H         PUBLIC        PSW
+  B:00B0H.2       PUBLIC        K1
+  B:00B0H.3       PUBLIC        K2
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        z
+  -------         DO            
+  D:0007H         SYMBOL        x
+  D:0006H         SYMBOL        y
+  -------         ENDDO         
+  C:0982H         LINE#         14
+  C:0982H         LINE#         15
+  C:0982H         LINE#         17
+  C:0988H         LINE#         18
+  C:098FH         LINE#         19
+  -------         ENDPROC       _DELAY
+  -------         PROC          CLEARSCREEN
+  -------         DO            
+  D:000EH         SYMBOL        i
+  -------         ENDDO         
+  C:0990H         LINE#         23
+  C:0990H         LINE#         24
+  C:0990H         LINE#         26
+  C:0993H         LINE#         27
+  C:0996H         LINE#         28
+  C:0999H         LINE#         29
+  -------         ENDPROC       CLEARSCREEN
+  -------         PROC          KEY
+  C:0857H         LINE#         33
+  C:0857H         LINE#         34
+  C:0857H         LINE#         35
+  C:085AH         LINE#         36
+  C:085AH         LINE#         37
+  C:085DH         LINE#         38
+  C:0860H         LINE#         40
+  C:0869H         LINE#         41
+  C:086CH         LINE#         42
+  C:086CH         LINE#         43
+  C:0871H         LINE#         44
+  C:0874H         LINE#         45
+  C:0876H         LINE#         46
+  C:0879H         LINE#         47
+  C:0879H         LINE#         49
+  C:087CH         LINE#         50
+  C:087CH         LINE#         51
+  C:087FH         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/17/2013  09:44:29  PAGE 4
+
+
+  C:0882H         LINE#         54
+  C:088BH         LINE#         55
+  C:088EH         LINE#         56
+  C:088EH         LINE#         57
+  C:0893H         LINE#         58
+  C:0896H         LINE#         59
+  C:0898H         LINE#         60
+  C:089BH         LINE#         61
+  C:089BH         LINE#         62
+  -------         ENDPROC       KEY
+  -------         PROC          _D1
+  D:0007H         SYMBOL        offset
+  C:0942H         LINE#         65
+  C:0942H         LINE#         66
+  C:0942H         LINE#         67
+  C:0949H         LINE#         68
+  C:0950H         LINE#         69
+  C:0955H         LINE#         70
+  C:0958H         LINE#         71
+  -------         ENDPROC       _D1
+  C:0927H         SYMBOL        L?0044
+  -------         PROC          L?0043
+  -------         ENDPROC       L?0043
+  C:0927H         SYMBOL        L?0044
+  -------         PROC          _D2
+  D:0007H         SYMBOL        ballY
+  D:0005H         SYMBOL        ballX
+  C:092BH         LINE#         73
+  C:092BH         LINE#         74
+  C:092BH         LINE#         75
+  C:0932H         LINE#         76
+  C:0939H         LINE#         77
+  C:093EH         LINE#         78
+  C:0941H         LINE#         79
+  -------         ENDPROC       _D2
+  -------         PROC          INIT
+  -------         DO            
+  D:000FH         SYMBOL        i
+  -------         ENDDO         
+  C:0900H         LINE#         81
+  C:0900H         LINE#         82
+  C:0900H         LINE#         84
+  C:0903H         LINE#         85
+  C:0905H         LINE#         86
+  C:090BH         LINE#         87
+  C:090EH         LINE#         88
+  C:0911H         LINE#         89
+  C:0914H         LINE#         90
+  C:0917H         LINE#         91
+  C:0919H         LINE#         92
+  C:091CH         LINE#         93
+  C:091EH         LINE#         94
+  C:0921H         LINE#         95
+  C:0924H         LINE#         96
+  C:0926H         LINE#         97
+  -------         ENDPROC       INIT
+  -------         PROC          TESTBOUNDARY
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/17/2013  09:44:29  PAGE 5
+
+
+  C:089CH         LINE#         100
+  C:089CH         LINE#         101
+  C:089CH         LINE#         102
+  C:08A0H         LINE#         103
+  C:08A0H         LINE#         104
+  C:08A5H         LINE#         105
+  C:08A8H         LINE#         106
+  C:08A8H         LINE#         108
+  C:08ADH         LINE#         109
+  C:08ADH         LINE#         110
+  C:08B2H         LINE#         111
+  C:08B2H         LINE#         112
+  C:08B5H         LINE#         113
+  C:08B5H         LINE#         114
+  C:08B5H         LINE#         115
+  C:08BAH         LINE#         116
+  C:08BAH         LINE#         117
+  C:08BFH         LINE#         118
+  C:08C2H         LINE#         119
+  C:08C2H         LINE#         120
+  C:08C7H         LINE#         121
+  C:08C7H         LINE#         122
+  C:08CCH         LINE#         123
+  C:08CCH         LINE#         124
+  C:08CFH         LINE#         125
+  C:08CFH         LINE#         126
+  C:08CFH         LINE#         127
+  -------         ENDPROC       TESTBOUNDARY
+  -------         PROC          BUZZ
+  C:09AAH         LINE#         129
+  C:09AAH         LINE#         130
+  C:09AAH         LINE#         131
+  C:09ACH         LINE#         132
+  C:09B1H         LINE#         133
+  C:09B3H         LINE#         134
+  -------         ENDPROC       BUZZ
+  -------         PROC          TESTCATCH
+  C:08D0H         LINE#         135
+  C:08D0H         LINE#         136
+  C:08D0H         LINE#         137
+  C:08D5H         LINE#         138
+  C:08D5H         LINE#         139
+  C:08DBH         LINE#         140
+  C:08DBH         LINE#         141
+  C:08EFH         LINE#         142
+  C:08EFH         LINE#         143
+  C:08FDH         LINE#         144
+  C:08FFH         LINE#         145
+  C:08FFH         LINE#         146
+  C:08FFH         LINE#         147
+  C:08FFH         LINE#         148
+  -------         ENDPROC       TESTCATCH
+  -------         PROC          MAIN
+  C:096FH         LINE#         151
+  C:096FH         LINE#         152
+  C:096FH         LINE#         153
+  C:0972H         LINE#         154
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/17/2013  09:44:29  PAGE 6
+
+
+  C:0972H         LINE#         155
+  C:0972H         LINE#         156
+  C:0975H         LINE#         157
+  C:0978H         LINE#         158
+  C:097DH         LINE#         159
+  C:0980H         LINE#         160
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER
+  C:0800H         LINE#         163
+  C:081DH         LINE#         165
+  C:0820H         LINE#         166
+  C:0823H         LINE#         167
+  C:0825H         LINE#         168
+  C:082AH         LINE#         169
+  C:082AH         LINE#         170
+  C:082DH         LINE#         171
+  C:0830H         LINE#         172
+  C:0836H         LINE#         173
+  C:083CH         LINE#         174
+  C:083CH         LINE#         175
+  -------         ENDPROC       TIMER
+  -------         ENDMOD        PONG3
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CLEARSCREEN?PONG3
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BUZZ?PONG3
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01ABH BYTE (20%) *
+******************************************************************************
+
+Program Size: data=17.0 xdata=0 code=442
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
